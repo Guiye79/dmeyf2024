@@ -5,7 +5,7 @@ require("data.table")
 require("rpart")
 
 PARAM <- list()
-PARAM$semilla <- 103301
+PARAM$semilla <- 113311
 PARAM$training_pct <- 70L  # entre  1L y 99L 
 
 PARAM$rpart <- list (
@@ -26,13 +26,13 @@ particionar <- function(
     data, division, agrupa = "",
     campo = "fold", start = 1, seed = NA) {
   if (!is.na(seed)) set.seed(seed)
-
+  
   bloque <- unlist(mapply(function(x, y) {
     rep(y, x)
   }, division, seq(from = start, length.out = length(division))))
-
+  
   data[, (campo) := sample(rep(bloque, ceiling(.N / length(bloque))))[1:.N],
-    by = agrupa
+       by = agrupa
   ]
 }
 #------------------------------------------------------------------------------
@@ -40,19 +40,19 @@ particionar <- function(
 # Aqui comienza el programa
 
 # Establezco el Working Directory, elija una carpeta de su 
-setwd("~/buckets/b1/")
+setwd("C:/Users/guill/dmeyf2024")
 
 # cargo el dataset
-dataset <- fread("./datasets/competencia_01.csv")
+dataset <- fread("./datasets/competencia_01_R.csv")
 
 # trabajo, por ahora, solo con 202104
 dataset <- dataset[foto_mes==202104]
 
 # particiono estratificadamente el dataset 70%, 30%
 particionar(dataset,
-  division = c(PARAM$training_pct, 100L -PARAM$training_pct), 
-  agrupa = "clase_ternaria",
-  seed = PARAM$semilla # aqui se usa SU semilla
+            division = c(PARAM$training_pct, 100L -PARAM$training_pct), 
+            agrupa = "clase_ternaria",
+            seed = PARAM$semilla # aqui se usa SU semilla
 )
 
 
@@ -60,16 +60,16 @@ particionar(dataset,
 # quiero predecir clase_ternaria a partir del resto
 # fold==1  es training,  el 70% de los datos
 modelo <- rpart("clase_ternaria ~ .",
-  data = dataset[fold == 1],
-  xval = 0,
-  control = PARAM$rpart # aqui van los parametros
+                data = dataset[fold == 1],
+                xval = 0,
+                control = PARAM$rpart # aqui van los parametros
 )
 
 
 # aplico el modelo a los datos de testing
 prediccion <- predict(modelo, # el modelo que genere recien
-  dataset[fold == 2], # fold==2  es testing, el 30% de los datos
-  type = "prob"
+                      dataset[fold == 2], # fold==2  es testing, el 30% de los datos
+                      type = "prob"
 ) # type= "prob"  es que devuelva la probabilidad
 
 # prediccion es una matriz con TRES columnas,
@@ -99,3 +99,4 @@ cat("Estimulos: ", estimulos, "\n")
 cat("Aciertos (BAJA+2): ", aciertos, "\n")
 
 cat("Ganancia en testing (normalizada): ", ganancia_test_normalizada, "\n")
+
