@@ -1,0 +1,60 @@
+422_lightgbm_binaria_BO.r
+
+semilla: 113311
+Genere HT4220_mejor.txt Carpeta: HT4220
+
+
+
+723_preprocesamiento
+
+Se corrio sobre el dataset con la clase ternaria 'competencia_01_R.csv'
+ - semilla: 113311
+Se realizo el preprocesamiento del dataset con el script de la catedra
+- generando el dataset: 'dataset.csv.gz' Carpeta: PP7230
+
+
+744_lightgbm_binaria_BO.r
+
+LightGBM_Bayesian_Op sobre el dataset: 'dataset.csv.gz' Carpeta: PP7230
+- semilla113311
+- Usamos de HT4220_mejor.txt
+
+# Aqui se cargan los hiperparametros VIRTUALES que se optimzan en la Bayesian Optimization utilizo los calculados en HT4220_mejor.txt 
+PARAM$bo_lgb <- makeParamSet(
+  makeNumericParam("learning_rate", lower = 0.01, upper = 0.1),
+  makeNumericParam("feature_fraction", lower = 0.5, upper = 0.8),
+  makeNumericParam("leaf_size_log", lower = -10.0, upper = -6.0),
+  makeNumericParam("coverage_log", lower = -8.0, upper = -3.0),
+  makeNumericParam("num_iterations_log", lower = 6.0, upper = 8.0)
+)
+PARAM$bo_iteraciones <- 100 # iteraciones de la Optimizacion Bayesiana
+
+
+Generamos la Optimizacion Bayesiana: "BO_log.txt"	Carpeta: HT7440
+
+
+
+
+745_lightgbm_final.r
+
+LightGBM final dataset: 'dataset.csv.gz' Carpeta: PP7230
+Optimizacion Bayesiana: "BO_log.txt"	Carpeta: HT7440
+semilla: 113311
+
+
+Genere los archivos para Kaggle: 66 archivos KA7450.csv, 10 por cada semilla
+
+hice un grafico de ganancia a partir de los valores del score publico de Kaggle para cada archivo subido
+
+'KA7450_ganancias.txt' y el grafico  'KA7450_Grafico_Ganancias' Carpeta: KA7450_1ra_Competencia
+
+
+Seleccione el archivo: 'KA7450_2_796571_11500'
+
+
+
+
+
+
+
+
