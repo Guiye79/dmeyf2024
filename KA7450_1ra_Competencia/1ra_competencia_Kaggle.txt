@@ -42,7 +42,7 @@ Optimizacion Bayesiana: "BO_log.txt"	Carpeta: HT7440
 semilla: 113311
 
 
-Genere los archivos para Kaggle: 66 archivos KA7450.csv, 10 por cada semilla
+Genere los archivos para Kaggle: 66 archivos KA7450.csv
 
 hice un grafico de ganancia a partir de los valores del score publico de Kaggle para cada archivo subido
 
