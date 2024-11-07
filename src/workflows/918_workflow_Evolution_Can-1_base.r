@@ -227,34 +227,34 @@ FEhist_base <- function( pinputexps)
   #return( exp_correr_script( param_local ) ) # linea fija
 #}
 #------------------------------------------------------------------------------
-# Canaritos Asesinos   Baseline
+Canaritos Asesinos   Baseline
 #  azaroso, utiliza semilla
 
-#CN_canaritos_asesinos_base <- function( pinputexps, ratio, desvio)
-#{
-#  if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
+CN_canaritos_asesinos_base <- function( pinputexps, ratio, desvio)
+{
+  if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
 
 
- # param_local$meta$script <- "/src/wf-etapas/z1601_CN_canaritos_asesinos.r"
+  param_local$meta$script <- "/src/wf-etapas/z1601_CN_canaritos_asesinos.r"
 
-  # Parametros de un LightGBM que se genera para estimar la column importance
- # param_local$train$clase01_valor1 <- c( "BAJA+2", "BAJA+1")
- # param_local$train$positivos <- c( "BAJA+2")
- #param_local$train$training <- c( 202101, 202102, 202103)
- # param_local$train$validation <- c( 202105 )
- # param_local$train$undersampling <- 0.1
- # param_local$train$gan1 <- 273000
- # param_local$train$gan0 <-  -7000
+   Parametros de un LightGBM que se genera para estimar la column importance
+  param_local$train$clase01_valor1 <- c( "BAJA+2", "BAJA+1")
+  param_local$train$positivos <- c( "BAJA+2")
+  param_local$train$training <- c( 202101, 202102, 202103)
+  param_local$train$validation <- c( 202105 )
+  param_local$train$undersampling <- 0.1
+  param_local$train$gan1 <- 273000
+   param_local$train$gan0 <-  -7000
 
 
   # ratio varia de 0.0 a 2.0
   # desvio varia de -4.0 a 4.0
- # param_local$CanaritosAsesinos$ratio <- ratio
+ param_local$CanaritosAsesinos$ratio <- ratio
   # desvios estandar de la media, para el cutoff
- # param_local$CanaritosAsesinos$desvios <- desvio
+ param_local$CanaritosAsesinos$desvios <- desvio
 
- # return( exp_correr_script( param_local ) ) # linea fija
-#}
+  return( exp_correr_script( param_local ) ) # linea fija
+}
 #------------------------------------------------------------------------------
 # Training Strategy  Baseline
 #   y solo incluyo en el dataset al 20% de los CONTINUA
@@ -439,7 +439,7 @@ wf_agosto_base_can <- function( pnombrewf )
   #   mtry_ratio= 0.2
  # )
 
-  CN_canaritos_asesinos_base(ratio=0.2, desvio=-1.0)
+  CN_canaritos_asesinos_base(ratio=0.2, desvio= -1.0)
 
   # Etapas modelado
   ts8 <- TS_strategy_base8()
