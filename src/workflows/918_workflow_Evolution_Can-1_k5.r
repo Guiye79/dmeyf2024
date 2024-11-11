@@ -431,7 +431,7 @@ wf_agosto_k5_can <- function( pnombrewf )
   # CA_catastrophe_base( metodo="MachineLearning")
   # FEintra_manual_base()
   # DR_drifting_base(metodo="deflacion")
-  # FEhist_base()
+   FEhist_base()
 
   # FErf_attributes_base( arbolitos= 20,
   #   hojas_por_arbol= 16,
@@ -442,12 +442,12 @@ wf_agosto_k5_can <- function( pnombrewf )
   CN_canaritos_asesinos_base(ratio=0.2, desvio= -1.8)
 
   # Etapas modelado
-  #ts8 <- TS_strategy_base8()
-  #ht <- HT_tuning_base( bo_iteraciones = 40 )  # iteraciones inteligentes
+  ts8 <- TS_strategy_base8()
+  ht <- HT_tuning_base( bo_iteraciones = 40 )  # iteraciones inteligentes
 
   # Etapas finales
-   #fm <- FM_final_models_lightgbm( c(ht, ts8), ranks=c(1), qsemillas=5 )
-  # SC_scoring( c(fm, ts8) )
+   fm <- FM_final_models_lightgbm( c(ht, ts8), ranks=c(1), qsemillas=5 )
+   SC_scoring( c(fm, ts8) )
    #KA_evaluate_kaggle()  # genera archivos para Kaggle
 
   return( exp_wf_end() ) # linea workflow final fija
