@@ -432,10 +432,10 @@ wf_junio_k2 <- function( pnombrewf )
   DT_incorporar_dataset( "~/buckets/b1/datasets/dataset_iter_2.csv.gz")
 
   # Etapas preprocesamiento
-  CA_catastrophe_base( metodo="MachineLearning")
+  #CA_catastrophe_base( metodo="MachineLearning")
   #FEintra_manual_base()
-  DR_drifting_base(metodo="deflcion")
-  FEhist_base()
+  #DR_drifting_base(metodo="deflcion")
+  #FEhist_base()
 
   #FErf_attributes_base( arbolitos= 20,
    # hojas_por_arbol= 16,
