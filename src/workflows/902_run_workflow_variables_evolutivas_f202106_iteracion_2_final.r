@@ -33,3 +33,8 @@ correr_workflow <- function( wf_scriptname )
 
   system( "./run.sh" )
 }
+#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+
+# aqui efectivamente llamo al workflow
+correr_workflow( PARAM )
