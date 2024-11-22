@@ -135,7 +135,7 @@ FEhist_base <- function( pinputexps)
   param_local$meta$script <- "/src/wf-etapas/z1501_FE_historia.r"
 
   param_local$lag1 <- TRUE
-  param_local$lag2 <- FALSE # no me engraso con los lags de orden 2
+  param_local$lag2 <- TRUE # no me engraso con los lags de orden 2
   param_local$lag3 <- FALSE # no me engraso con los lags de orden 3
 
   # no me engraso las manos con las tendencias
@@ -434,7 +434,7 @@ wf_agosto_variables_evolutivas_iteracion_1_final <- function( pnombrewf )
 #  DR_drifting_base(metodo="deflacion")
   FEhist_base()
 
-  FErf_attributes_base( arbolitos= 20,
+  FErf_attributes_base( arbolitos= 25,
     hojas_por_arbol= 16,
     datos_por_hoja= 1000,
     mtry_ratio= 0.2
@@ -447,7 +447,7 @@ wf_agosto_variables_evolutivas_iteracion_1_final <- function( pnombrewf )
   ht <- HT_tuning_base( bo_iteraciones = 40 )  # iteraciones inteligentes
 
   # Etapas finales
-  fm <- FM_final_models_lightgbm( c(ht, ts6), ranks=c(1), qsemillas=10 )
+  fm <- FM_final_models_lightgbm( c(ht, ts6), ranks=c(1), qsemillas=4 )
   SC_scoring( c(fm, ts6) )
   KA_evaluate_kaggle()  # genera archivos para Kaggle
 
