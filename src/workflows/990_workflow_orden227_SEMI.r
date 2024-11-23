@@ -1,4 +1,4 @@
-# Corrida general del Workflow Semillerio  dataset_iter_f202106_1.csv.gz
+# Corrida general del Workflow Semillerio  
 # Orden 227 : Ni un paso atras              990_workflow_orden227_SEMI.r
 
 # limpio la memoria
@@ -462,7 +462,7 @@ KA_evaluate_kaggle_semillerio <- function( pinputexps )
   param_local$irepes_submit <- 1:20 # misterioso parametro, no preguntar
 
   param_local$envios_desde <- 10500L
-  param_local$envios_hasta <- 12050L
+  param_local$envios_hasta <- 12500L
   param_local$envios_salto <-   500L
   param_local$competition <- "dm-ey-f-2024-segunda"
 
@@ -481,7 +481,7 @@ wf_SEMI_ago_orden227 <- function( pnombrewf )
   param_local <- exp_wf_init( pnombrewf ) # linea fija
 
   # Etapa especificacion dataset de la Segunda Competencia Kaggle
-  DT_incorporar_dataset( "~/buckets/b1/datasets/competencia_02.csv.gz")
+  DT_incorporar_dataset( "~/buckets/b1/datasets/dataset_iter_f202106_1.csv.gz")
 
   CA_catastrophe_base( metodo="MachineLearning")
   FEintra_manual_base()
