@@ -1,7 +1,7 @@
 require( "data.table" )
 
 # leo el dataset
-dataset <- fread("competencia_02_crudo.csv.gz" )
+dataset <- fread("competencia_03_crudo.csv.gz" )
 
 # calculo el periodo0 consecutivo
 dsimple <- dataset[, list(
@@ -41,6 +41,6 @@ setorder( dsimple, pos )
 dataset[, clase_ternaria := dsimple$clase_ternaria ]
 
 fwrite( dataset,
-        file =  "competencia_02.csv.gz",
+        file =  "competencia_03.csv.gz",
         sep = ","
 )
