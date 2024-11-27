@@ -277,13 +277,13 @@ TS_strategy_base8 <- function( pinputexps )
   param_local$train$testing <- c(202106)
 
 
-   Atencion  0.2  de  undersampling de la clase mayoritaria,  los CONTINUA
-   1.0 significa NO undersampling
+ #  Atencion  0.2  de  undersampling de la clase mayoritaria,  los CONTINUA
+  # 1.0 significa NO undersampling
   param_local$train$undersampling <- 0.2
   param_local$train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
 
   return( exp_correr_script( param_local ) ) # linea fija
-#}
+}
 #------------------------------------------------------------------------------
 # Atencion, el undersampling es de 0.02
 #  tanto para entrenamineto como para  Final train$clase01_valor1
