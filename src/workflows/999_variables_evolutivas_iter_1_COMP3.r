@@ -2,14 +2,14 @@ require( "data.table" ) # 999_variables_evolutivas_iter_1_COMP3.r
 
 #Especificar carpeta donde guarda el dataset los canarios asesinos.
 #Si va a ser la primer iteracion, especificar carpeta del dataset original
-setwd("~/buckets/b1/expw/FEintra-0001") # Establezco el Working Directory
+setwd("~/buckets/b1/expwC3/FEintra-0001") # Establezco el Working Directory
 
 #Nombre del dataset
 dataset <- fread("dataset.csv.gz")
 
 #Nombre de la carpeta donde se guardan la importancia de las variables. suele ser la del ultimo canario asesino
 #Si es primer iteración, correr un canario asesino que da el archivo con la importancia
-setwd("~/buckets/b1/expw/CN-0001")
+setwd("~/buckets/b1/expwC3/CN-0001")
 
 #Nombre del archivo con las variables ordendas por importancia.
 impo_1 <- fread("impo_1.txt")
