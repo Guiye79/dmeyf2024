@@ -479,7 +479,7 @@ KA_evaluate_kaggle_semillerio <- function( pinputexps )
 # Que predice 202107 donde conozco la clase
 # y ya genera graficos
 
-wf_competencia_3_005 <- function( pnombrewf )
+wf_competencia_3_006 <- function( pnombrewf )
 {
   param_local <- exp_wf_init( pnombrewf ) # linea fija
 
@@ -498,7 +498,7 @@ wf_competencia_3_005 <- function( pnombrewf )
   # la Bayesian Optimization con el semillerio dentro
   ht <- HT_tuning_semillerio(
     semillerio = 50, # semillerio dentro de la Bayesian Optim
-    bo_iteraciones = 10  # iteraciones inteligentes, apenas 10
+    bo_iteraciones = 20  # iteraciones inteligentes, apenas 10
   )
 
 
@@ -520,4 +520,4 @@ wf_competencia_3_005 <- function( pnombrewf )
 # Aqui comienza el programa
 
 # llamo al workflow con future = 202108
-wf_competencia_3_005()
+wf_competencia_3_006()
